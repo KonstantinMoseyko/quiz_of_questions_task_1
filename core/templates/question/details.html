@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Question #{{ question.id }}
+{% endblock %}
+
+{% block body %}
+<h1>Question #{{ question.id }}</h1>
+    <div>
+    <p>Question</p>   
+    <div>{{ question.body_question }}</div>
+    <p>Answer</p>
+    <div>{{ question.body_answer }}</div>
+    <div>Published {{ question.dt_created }}</div>
+    </div>
+{% endblock %}
