@@ -5,12 +5,25 @@ Question #{{ question.id }}
 {% endblock %}
 
 {% block body %}
-<h1>Question #{{ question.id }}</h1>
+<h1 class="fs-2">Question ID#{{ question.id }}</h1>
     <div>
-    <p>Question</p>   
-    <div>{{ question.body_question }}</div>
-    <p>Answer</p>
-    <div>{{ question.body_answer }}</div>
-    <div>Published {{ question.dt_created }}</div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Question</th>
+                    <th scope="col">Answer</th>
+                    <th scope="col">Date of creation</th>
+                    <th scope="col">Date of updating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>     
+                    <td>{{ question.body_question }}</td>
+                    <td>{{ question.body_answer }}</td>
+                    <td>{{ question.dt_created }}</td>
+                    <td>{{ question.dt_updated }}</td> 
+                </tr>
+            </tbody>
+        </table>
     </div>
 {% endblock %}

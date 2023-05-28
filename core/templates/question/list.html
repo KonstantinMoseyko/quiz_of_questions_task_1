@@ -5,15 +5,28 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Questions and answers</h1>
+    <h1 class="fs-2">Questions and answers</h1>
     <div>
-        <ul>
-        {% for question in questions %}
-            <li>
-            <a href="{{ url_for('question_app.details', question_id=question.id) }}">
-                {{ question.id }}</a>
-            {{ question.body_question }}
-            </li>
-        {% endfor %}
-        </ul>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID number</th>
+                    <th scope="col">Question</th>
+                    <th scope="col">Answer</th>
+                </tr>
+            </thead>
+            {% for question in questions %}
+            <tbody>
+                <tr>
+                    <td>
+                        <a href="{{ url_for('question_app.details', question_id=question.id) }}">
+                            {{ question.id }}</a>
+                    </td>       
+                    <td>{{ question.body_question }}</td>
+                    <td>{{ question.body_answer }}</td> 
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
 {% endblock %}
