@@ -2,8 +2,7 @@ from flask import Blueprint, jsonify, request
 from datetime import datetime
 import requests
 
-from core.models import db, Question
-
+from core.models import Session, Question
 
 api_app = Blueprint("api_app", __name__)
 
@@ -12,12 +11,14 @@ def jservice_request():
     data = request.get_json()
     questions_num = data.get('questions_num')
     
+    session = Session()
+    
     while True:
         response = requests.get(f"https://jservice.io/api/random?count={questions_num}")
         data = response.json()
 
         for item in data:
-            existing_question = db.session.query(Question).filter_by(id_question=item['id']).first()
+            existing_question = session.query(Question).filter_by(id_question=item['id']).first()
             if existing_question is None:
                 question = Question(
                     id_question=item['id'], 
@@ -27,15 +28,15 @@ def jservice_request():
                     updated_at=datetime.fromisoformat(item['updated_at'].replace('Z', '+00:00')),
                 )
 
-                db.session.add(question)
+                session.add(question)
 
-        if db.session.new:
-            db.session.commit()
+        if session.new:
+            session.commit()
             break
 
-    last_question = db.session.query(Question).order_by(Question.id.desc()).offset(1).first()
+    last_question = session.query(Question).order_by(Question.id.desc()).offset(1).first()
 
-    db.session.close()
+    session.close()
 
     if last_question is not None:
         result = {

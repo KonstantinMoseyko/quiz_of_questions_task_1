@@ -1,8 +1,9 @@
-from core.models.database import db
+from core.models.database import Base, Session
 from core.models.models import Question
 
 
 __all__ = [
-    "db",
+    "Base",
     "Question",
+    "Session",
 ]
