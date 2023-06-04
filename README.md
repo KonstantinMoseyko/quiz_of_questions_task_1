@@ -11,8 +11,6 @@
   ### Stack
   [![Flask][Flask]][Flask-url] [![SQLAlchemy][SQLAlchemy]][SQLAlchemy-url] [![PostgreSQL][PostgreSQL]][PostgreSQL-url] [![Docker][Docker]][Docker-url]
 
-  https://img.shields.io/badge/license-MIT-green
-
 
 ## Инструкция по сборке и запуску сервиса
   
@@ -40,3 +38,15 @@
      ```
   
      У сервиса имеется свой GUI, перейдя по ссылке http://127.0.0.1:5000/question/ можно ознакомиться с вопросами которые записаны в БД.
+
+
+
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[Flask]: https://img.shields.io/badge/flask-778876?style=for-the-badge&logo=flask&logoColor=black
+[Flask-url]: https://palletsprojects.com/p/flask/
+[SQLAlchemy]: https://img.shields.io/badge/sqlalchemy-778876?style=for-the-badge&logo=python&logoColor=black
+[SQLAlchemy-url]: https://www.sqlalchemy.org/
+[Docker]: https://img.shields.io/badge/Docker-230db7?style=for-the-badge&logo=docker&logoColor=white
+[Docker-url]: https://www.docker.com/
+[PostgreSQL]: https://img.shields.io/badge/PostgreSQL-233161?style=for-the-badge&logo=postgresql&logoColor=white
+[PostgreSQL-url]: https://www.postgresql.org/
